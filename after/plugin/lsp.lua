@@ -28,6 +28,28 @@ require('lspconfig').gopls.setup {
     },
 }
 
+require('lspconfig').yamlls.setup {
+    settings = {
+        yaml = {
+            format = {
+                enable = true,
+                singleQuote = true,
+                printWidth = 120,
+            },
+            hover = true,
+            completion = true,
+            validate = true,
+            schemas = {
+                kubernetes = { "*.yaml", "*.yml" },
+            },
+            schemaStore = {
+                enable = true,
+                url = "https://www.schemastore.org/json",
+            },
+        }
+    }
+}
+
 lsp.skip_server_setup({ 'rust_analyzer' })
 
 lsp.setup()
