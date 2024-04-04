@@ -28,6 +28,19 @@ require('lspconfig').gopls.setup {
     },
 }
 
+vim.lsp.set_log_level 'debug'
+
+local util = require "lspconfig/util"
+require('lspconfig.configs').tekton = {
+    default_config = {
+        cmd = { "tekton-ls" },
+        filetypes = { 'yaml' },
+        root_dir = util.root_pattern(".git"),
+        settings = {},
+    }
+}
+require('lspconfig').tekton.setup {}
+
 require('lspconfig').yamlls.setup {
     settings = {
         yaml = {

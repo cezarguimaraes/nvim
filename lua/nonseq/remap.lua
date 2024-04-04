@@ -24,3 +24,10 @@ vim.keymap.set("n", "<C-f>", "<cmd> !tmux neww tmux-sessionizer<CR>")
 
 -- Rust
 vim.keymap.set("n", "<leader>rr", "<cmd> :RustRun<CR>")
+
+-- tmux-navigator
+vim.keymap.set("n", "<C-h>", "<cmd>TmuxNavigateLeft<CR>")
+vim.keymap.set("n", "<C-j>", "<cmd>TmuxNavigateDown<CR>")
+vim.keymap.set("n", "<C-k>", "<cmd>TmuxNavigateUp<CR>")
+vim.keymap.set("n", "<C-l>", "<cmd>TmuxNavigateRight<CR>")
+vim.keymap.set("n", "<C-\\>", "<cmd>TmuxNavigatePrevious<CR>")
