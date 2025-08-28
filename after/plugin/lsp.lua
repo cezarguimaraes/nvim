@@ -3,7 +3,7 @@ local lsp = require('lsp-zero').preset({
 })
 
 lsp.ensure_installed({
-    'tsserver',
+    'ts_ls',
     'eslint',
     'rust_analyzer'
 })
@@ -30,16 +30,15 @@ require('lspconfig').gopls.setup {
 
 vim.lsp.set_log_level 'debug'
 
-local util = require "lspconfig/util"
-require('lspconfig.configs').tekton = {
-    default_config = {
-        cmd = { "tekton-ls" },
-        filetypes = { 'yaml' },
-        root_dir = util.root_pattern(".git"),
-        settings = {},
-    }
-}
-require('lspconfig').tekton.setup {}
+-- require('lspconfig.configs').tekton = {
+--     default_config = {
+--         cmd = { "tekton-ls" },
+--         filetypes = { 'yaml' },
+--         root_dir = util.root_pattern(".git"),
+--         settings = {},
+--     }
+-- }
+-- require('lspconfig').tekton.setup {}
 
 require('lspconfig').yamlls.setup {
     settings = {
@@ -89,4 +88,13 @@ cmp.setup({
     mapping = {
         ['<Tab>'] = cmp.mapping.confirm({ select = false }),
     }
+})
+
+local lspconfig = require('lspconfig')
+lspconfig.pyright.setup({
+    root_dir = function(fname)
+        return vim.fn.getcwd()
+    end,
+    settings = {
+    },
 })
