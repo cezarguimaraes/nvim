@@ -13,6 +13,7 @@ return require('packer').startup(function(use)
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
 
+    --[[
     use {
         'rose-pine/neovim',
         as = 'rose-pine',
@@ -20,6 +21,7 @@ return require('packer').startup(function(use)
             vim.cmd('colorscheme rose-pine')
         end
     }
+    ]]
 
     use {
         'nvim-treesitter/nvim-treesitter',
@@ -58,4 +60,25 @@ return require('packer').startup(function(use)
     use 'simrat39/rust-tools.nvim'
 
     use 'ThePrimeagen/vim-be-good'
+
+    use "nvim-lua/plenary.nvim"
+
+    use 'nvim-tree/nvim-web-devicons'
+
+    use {
+        'pwntester/octo.nvim',
+        requires = {
+            'nvim-lua/plenary.nvim',
+            'nvim-telescope/telescope.nvim',
+            -- OR 'ibhagwan/fzf-lua',
+            -- OR 'folke/snacks.nvim',
+            'nvim-tree/nvim-web-devicons',
+        },
+        config = function()
+            require "octo".setup()
+        end
+    }
+
+    -- Packer:
+    use 'Mofiqul/vscode.nvim'
 end)
