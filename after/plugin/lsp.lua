@@ -28,7 +28,7 @@ require('lspconfig').gopls.setup {
     },
 }
 
-vim.lsp.set_log_level 'debug'
+-- vim.lsp.set_log_level 'debug'
 
 -- require('lspconfig.configs').tekton = {
 --     default_config = {

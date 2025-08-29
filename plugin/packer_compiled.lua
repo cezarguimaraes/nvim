@@ -114,6 +114,11 @@ _G.packer_plugins = {
     path = "/Users/cezar_guimaraes/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
     url = "https://github.com/VonHeikemen/lsp-zero.nvim"
   },
+  ["markview.nvim"] = {
+    loaded = true,
+    path = "/Users/cezar_guimaraes/.local/share/nvim/site/pack/packer/start/markview.nvim",
+    url = "https://github.com/OXY2DEV/markview.nvim"
+  },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
     path = "/Users/cezar_guimaraes/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
