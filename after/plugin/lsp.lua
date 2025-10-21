@@ -2,6 +2,8 @@ local lsp = require('lsp-zero').preset({
     name = 'minimal',
 })
 
+local telescope_builtin = require('telescope.builtin')
+
 lsp.ensure_installed({
     'ts_ls',
     'eslint',
@@ -11,7 +13,15 @@ lsp.ensure_installed({
 lsp.on_attach(function(client, bufnr)
     -- see :help lsp-zero-keybindings
     -- to learn the available actions
-    lsp.default_keymaps({ buffer = bufnr })
+    lsp.default_keymaps({
+        buffer = bufnr,
+        preserve_mappings = false,
+    })
+
+    vim.keymap.set('n', '<leader>r', telescope_builtin.lsp_references, {
+        buffer = bufnr,
+        desc = 'List LSP references',
+    })
 
     lsp.buffer_autoformat({ buffer = bufnr })
 end)
